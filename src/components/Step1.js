@@ -26,7 +26,7 @@ function Step1(props) {
                             <label htmlFor="name_attendee_1">
                                 Attendee {i} Name:
                             </label>
-                            <input type="text" name={'peopleName'} onChange={(e) => {props.handlePeopleChange(e.target.value, i)}} />
+                            <input type="text" value={props.state.peopleNames[i]} name={'peopleName'} onChange={(e) => {props.handlePeopleChange(e.target.value, i)}} />
                            </div>
                 })}
 

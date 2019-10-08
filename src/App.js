@@ -23,7 +23,7 @@ class App extends React.Component {
             specialAccomodation: null,
             specialAccomodationReason: null,
 
-            readyToRock: null,
+            readyToRock: false,
 
             step1Validation: false,
             step2Validation: false,
@@ -31,15 +31,24 @@ class App extends React.Component {
         };
 
         this.handleChange = this.handleChange.bind(this);
+        this.handleCheckBox = this.handleCheckBox.bind(this);
         this.handlePeopleChange = this.handlePeopleChange.bind(this);
         this.validation = this.validation.bind(this);
     }
 
     handleChange(event) {
-        const target = event.target;
-        const value = target.value;
-        const name = target.name;
+        const value = event.target.value;
+        const name = event.target.name;
+
         this.setState({[name]: value},(updatedState) => {this.validation()});
+
+        //console.log(target,value,name);
+    }
+
+    handleCheckBox(event) {
+        const name = event.target.name;
+
+        this.setState({[name]: !this.state[name]},(updatedState) => {this.validation()});
     }
 
     handlePeopleChange(value, position) {
@@ -53,10 +62,15 @@ class App extends React.Component {
 
         // step 1
         let step1Errors = [];
+
+        if (this.state.people === "0") {
+            step1Errors.push('missingPeopleParameter')
+        }
+
         for (let i=0; i < this.state.people; i++) {
 
             if (this.state.peopleNames[i] === '') {
-                step1Errors.push('missingName');
+                step1Errors.push('missingNameParameter');
             }
         }
 
@@ -75,9 +89,18 @@ class App extends React.Component {
             step2Errors.push('missingReason')
         }
 
+        // step 3
+        let step3Errors = [];
+
+        if (this.state.readyToRock === null || this.state.readyToRock === false) {
+            step3Errors.push('missingReadyToRock')
+        }
+
+
         this.setState({
             step1Validation: (step1Errors.length === 0),
-            step2Validation: (step2Errors.length === 0)
+            step2Validation: (step2Errors.length === 0),
+            step3Validation: (step3Errors.length === 0)
         })
     }
 
@@ -90,7 +113,7 @@ class App extends React.Component {
                 <form action="#" method="post">
                     <Step1 handleChange={this.handleChange} handlePeopleChange={this.handlePeopleChange} state={this.state}/>
                     <Step2 handleChange={this.handleChange} state={this.state} />
-                    <Step3 handleChange={this.handleChange} state={this.state} />
+                    <Step3 handleChange={this.handleChange} handleCheckBox={this.handleCheckBox} state={this.state} />
                 </form>
             </div>
         );
