@@ -5,6 +5,7 @@ function Step2(props) {
     return (
 
         <fieldset id="step_2">
+
             <legend>Step 2</legend>
             <p>
                 Would you like your company name on your badges?
@@ -46,6 +47,7 @@ function Step2(props) {
                     className={'resultIcon ' + (props.state.step2Validation === true ? 'active' : '')}
                 />
             </div>
+
         </fieldset>
     );
 }

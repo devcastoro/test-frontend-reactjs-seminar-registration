@@ -40,15 +40,11 @@ class App extends React.Component {
     handleChange(event) {
         const value = event.target.value;
         const name = event.target.name;
-
         this.setState({[name]: value},(updatedState) => {this.validation()});
-
-        //console.log(target,value,name);
     }
 
     handleCheckBox(event) {
         const name = event.target.name;
-
         this.setState({[name]: !this.state[name]},(updatedState) => {this.validation()});
     }
 
@@ -131,7 +127,6 @@ class App extends React.Component {
 
     render() {
 
-        console.log(this.state);
         return (
             <div id="page-wrap">
                 <h1>Seminar <span>Registration</span></h1>

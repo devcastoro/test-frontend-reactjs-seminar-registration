@@ -4,10 +4,12 @@ import success from '../success.svg';
 function Step1(props) {
     return (
         <fieldset id="step_1">
+
             <legend>Step 1</legend>
             <label htmlFor="num_attendees">
                 How many people will be attending?
             </label>
+
             <select id="num_attendees" name={'people'} onChange={(e) => {props.handleChange(e)}} >
                 <option value="0">Please Choose</option>
                 <option value="1">1</option>
@@ -17,8 +19,8 @@ function Step1(props) {
                 <option value="5">5</option>
             </select>
             <br />
-            <div id="attendee_container">
 
+            <div id="attendee_container">
                 <h3>Please provide full names:</h3>
 
                 {Array.from(Array(parseInt(props.state.people)), (e, i) => {
@@ -37,8 +39,8 @@ function Step1(props) {
                         className={'resultIcon ' + (props.state.step1Validation === true ? 'active' : '')}
                     />
                 </div>
-
             </div>
+
         </fieldset>
     );
 }
