@@ -1,0 +1,51 @@
+body {
+  background: #383738;
+  font-family: sans-serif;
+}
+#page-wrap {
+  background-image: radial-gradient(at top, #5B595B, #383738 35%);
+}
+h1 {
+  color: white;
+}
+h1 > span {
+  color: #4898D3;
+}
+form {
+  display: flex;
+}
+fieldset {
+  height: fit-content;
+}
+legend {
+  background: white;
+  border-radius: 5px;
+  font-size: 19px;
+  font-weight: bold;
+  padding: 5px;
+}
+label {
+  font-style: italic;
+}
+#step_1 {
+  background: #B4EDCD;
+}
+#step_2 {
+  background: #B5E0EF;
+}
+#step_3 {
+  background: #F0CDB5;
+}
+.resultContainer {
+  
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+
+  >img {
+    margin: auto;
+    height: 40px;
+  }
+}
+
+
