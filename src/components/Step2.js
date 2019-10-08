@@ -7,7 +7,7 @@ function Step2(props) {
 
     return (
 
-        <fieldset id="step_2" disabled={!status} className={status === false ? 'disabled' : false}>
+        <fieldset id="step_2" disabled={!status} className={status === false ? 'disabled' : ''}>
 
             <legend>Step 2</legend>
             <p>
