@@ -9,7 +9,7 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            people: 0,
+            people: "0",
             peopleNames: {
                 0: '',
                 1: '',
@@ -20,8 +20,8 @@ class App extends React.Component {
 
             nameBadge: null,
             companyName: null,
-            specialAccomodation: null,
-            specialAccomodationReason: null,
+            specialAccommodation: null,
+            specialAccommodationReason: null,
 
             readyToRock: false,
 
@@ -34,6 +34,7 @@ class App extends React.Component {
         this.handleCheckBox = this.handleCheckBox.bind(this);
         this.handlePeopleChange = this.handlePeopleChange.bind(this);
         this.validation = this.validation.bind(this);
+        this.submit = this.submit.bind(this);
     }
 
     handleChange(event) {
@@ -77,7 +78,7 @@ class App extends React.Component {
         // step 2
         let step2Errors = [];
 
-        if (this.state.nameBadge === null || this.state.specialAccomodation === null) {
+        if (this.state.nameBadge === null || this.state.specialAccommodation === null) {
             step2Errors.push('missingMandatoryParameters')
         }
 
@@ -85,7 +86,7 @@ class App extends React.Component {
             step2Errors.push('missingCompanyName')
         }
 
-        if (this.state.specialAccomodation === 'true' && (this.state.specialAccomodationReason === null || this.state.specialAccomodationReason === '' )) {
+        if (this.state.specialAccommodation === 'true' && (this.state.specialAccommodationReason === null || this.state.specialAccommodationReason === '' )) {
             step2Errors.push('missingReason')
         }
 
@@ -96,12 +97,36 @@ class App extends React.Component {
             step3Errors.push('missingReadyToRock')
         }
 
-
         this.setState({
             step1Validation: (step1Errors.length === 0),
             step2Validation: (step2Errors.length === 0),
             step3Validation: (step3Errors.length === 0)
         })
+    }
+
+    submit(e) {
+
+        e.preventDefault();
+
+        // extrapolate People Names list
+        let finalPeopleList = [];
+        for (let i=0; i < this.state.people; i++) {
+            finalPeopleList.push(this.state.peopleNames[i]);
+        }
+        if (this.state.step1Validation || this.state.step2Validation || this.state.step3Validation) {
+            console.log(
+                '\n People ' + this.state.people +
+                '\n PeopleNames ' + finalPeopleList +
+                '\n Company Name on Badge ' + this.state.nameBadge +
+                '\n Company Name ' + this.state.companyName +
+
+                '\n Special Accommodation ' + this.state.specialAccommodation +
+                '\n Special Accommodation Reason: ' + this.state.specialAccommodationReason +
+
+                '\n Ready to rock ' + this.state.readyToRock
+            )
+        }
+
     }
 
     render() {
@@ -110,7 +135,7 @@ class App extends React.Component {
         return (
             <div id="page-wrap">
                 <h1>Seminar <span>Registration</span></h1>
-                <form action="#" method="post">
+                <form onSubmit={(this.submit)}>
                     <Step1 handleChange={this.handleChange} handlePeopleChange={this.handlePeopleChange} state={this.state}/>
                     <Step2 handleChange={this.handleChange} state={this.state} />
                     <Step3 handleChange={this.handleChange} handleCheckBox={this.handleCheckBox} state={this.state} />

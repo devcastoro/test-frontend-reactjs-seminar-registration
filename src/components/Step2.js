@@ -24,17 +24,17 @@ function Step2(props) {
 
             <div>
                 <p> Will anyone in your group require special accommodations? </p>
-                <input type="radio" name={'specialAccomodation'} value={'true'} onChange={(e) => {props.handleChange(e)}}  />
+                <input type="radio" name={'specialAccommodation'} value={'true'} onChange={(e) => {props.handleChange(e)}}  />
                 <label htmlFor="special_accommodations_toggle_on">Yes</label>
                 &emsp;
-                <input type="radio" name={'specialAccomodation'} value={'false'} onChange={(e) => {props.handleChange(e)}}  />
+                <input type="radio" name={'specialAccommodation'} value={'false'} onChange={(e) => {props.handleChange(e)}}  />
                 <label htmlFor="special_accommodations_toggle_off">No</label>
             </div>
 
-            { props.state.specialAccomodation === 'true'
+            { props.state.specialAccommodation === 'true'
                 ? <div id="special_accommodations_wrap">
-                    <label htmlFor="special_accomodations_text">Please explain below:</label>
-                    <textarea rows="10" cols="10" name={'specialAccomodationReason'} onChange={(e) => {props.handleChange(e)}} />
+                    <label htmlFor="special_accommodations_text">Please explain below:</label>
+                    <textarea rows="10" cols="10" name={'specialAccommodationReason'} onChange={(e) => {props.handleChange(e)}} />
                   </div>
                 : false
             }
