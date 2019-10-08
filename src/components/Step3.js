@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Step3() {
+function Step3(props) {
     return (
 
         <fieldset id="step_3">
@@ -9,7 +9,7 @@ function Step3() {
                 Are you ready to rock?
             </label>
             <input type="checkbox" id="rock" />
-            <input type="submit" id="submit_button" value="Complete Registration" />
+            <input type="submit" id="submit_button" value="Complete Registration" disabled={(!props.state.step3Validation)} />
         </fieldset>
     );
 }

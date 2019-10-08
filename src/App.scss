@@ -42,9 +42,15 @@ label {
   justify-content: center;
   padding: 20px 0;
 
-  >img {
+  .resultIcon {
     margin: auto;
-    height: 40px;
+    height: 0px;
+    transition: height 0.3s;
+
+    &.active {
+      height: 40px;
+    }
+
   }
 }
 
