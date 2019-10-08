@@ -39,7 +39,6 @@ class App extends React.Component {
         const target = event.target;
         const value = target.value;
         const name = target.name;
-
         this.setState({[name]: value},(updatedState) => {this.validation()});
     }
 
@@ -61,11 +60,30 @@ class App extends React.Component {
             }
         }
 
-        this.setState({step1Validation: (step1Errors.length === 0)})
+        // step 2
+        let step2Errors = [];
+
+        if (this.state.nameBadge === null || this.state.specialAccomodation === null) {
+            step2Errors.push('missingMandatoryParameters')
+        }
+
+        if (this.state.nameBadge === 'true' && (this.state.companyName === null || this.state.companyName === '' )) {
+            step2Errors.push('missingCompanyName')
+        }
+
+        if (this.state.specialAccomodation === 'true' && (this.state.specialAccomodationReason === null || this.state.specialAccomodationReason === '' )) {
+            step2Errors.push('missingReason')
+        }
+
+        this.setState({
+            step1Validation: (step1Errors.length === 0),
+            step2Validation: (step2Errors.length === 0)
+        })
     }
 
     render() {
 
+        console.log(this.state);
         return (
             <div id="page-wrap">
                 <h1>Seminar <span>Registration</span></h1>

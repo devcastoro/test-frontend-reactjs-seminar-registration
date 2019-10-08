@@ -9,33 +9,36 @@ function Step2(props) {
             <p>
                 Would you like your company name on your badges?
             </p>
-            <input type="radio" id="company_name_toggle_on" name="company_name_toggle_group" />
+            <input type="radio" name="nameBadge" value={'true'} onChange={(e) => {props.handleChange(e)}} />
             <label htmlFor="company_name_toggle_on">Yes</label>
-            &emsp;
-            <input type="radio" id="company_name_toggle_off" name="company_name_toggle_group" />
+            <input type="radio" name="nameBadge" value={'false'} onChange={(e) => {props.handleChange(e)}} />
             <label htmlFor="company_name_toggle_off">No</label>
-            <div id="company_name_wrap">
-                <label htmlFor="company_name">
-                    Company Name:
-                </label>
-                <input type="text" id="company_name" />
-            </div>
+
+            { props.state.nameBadge === 'true'
+                ? <div id="company_name_wrap">
+                    <label htmlFor="company_name"> Company Name: </label>
+                    <input type="text" name={'companyName'} onChange={(e) => {props.handleChange(e)}} />
+                  </div>
+                : false
+            }
+
             <div>
-                <p>
-                    Will anyone in your group require special accommodations?
-                </p>
-                <input type="radio" id="special_accommodations_toggle_on" name="special_accommodations_toggle" />
-                    <label htmlFor="special_accommodations_toggle_on">Yes</label>
-                    &emsp;
-                    <input type="radio" id="special_accommodations_toggle_off" name="special_accommodations_toggle" />
-                    <label htmlFor="special_accommodations_toggle_off">No</label>
+                <p> Will anyone in your group require special accommodations? </p>
+                <input type="radio" name={'specialAccomodation'} value={'true'} onChange={(e) => {props.handleChange(e)}}  />
+                <label htmlFor="special_accommodations_toggle_on">Yes</label>
+                &emsp;
+                <input type="radio" name={'specialAccomodation'} value={'false'} onChange={(e) => {props.handleChange(e)}}  />
+                <label htmlFor="special_accommodations_toggle_off">No</label>
             </div>
-            <div id="special_accommodations_wrap">
-                <label htmlFor="special_accomodations_text">
-                    Please explain below:
-                </label>
-                <textarea rows="10" cols="10" id="special_accomodations_text"/>
-            </div>
+
+            { props.state.specialAccomodation === 'true'
+                ? <div id="special_accommodations_wrap">
+                    <label htmlFor="special_accomodations_text">Please explain below:</label>
+                    <textarea rows="10" cols="10" name={'specialAccomodationReason'} onChange={(e) => {props.handleChange(e)}} />
+                  </div>
+                : false
+            }
+
             <div className="resultContainer">
                 <img
                     src={success}
