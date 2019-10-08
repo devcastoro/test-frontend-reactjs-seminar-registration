@@ -1,9 +1,12 @@
 import React from 'react';
 
 function Step3(props) {
+
+    let status = (props.state.step1Validation && props.state.step2Validation);
+
     return (
 
-        <fieldset id="step_3">
+        <fieldset id="step_3" disabled={!status} className={status === false ? 'disabled' : false} >
 
             <legend>Step 3</legend>
             <label htmlFor="rock"> Are you ready to rock? </label>

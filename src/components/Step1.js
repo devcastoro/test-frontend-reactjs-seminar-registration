@@ -3,7 +3,7 @@ import success from '../success.svg';
 
 function Step1(props) {
     return (
-        <fieldset id="step_1">
+        <fieldset id="step_1" disabled={false}>
 
             <legend>Step 1</legend>
             <label htmlFor="num_attendees">

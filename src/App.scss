@@ -16,6 +16,11 @@ form {
 }
 fieldset {
   height: fit-content;
+  opacity: 1;
+  transition: opacity 0.5s;
+  &.disabled {
+    opacity: 0.5;
+  }
 }
 legend {
   background: white;

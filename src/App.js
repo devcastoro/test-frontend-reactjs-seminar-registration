@@ -109,7 +109,7 @@ class App extends React.Component {
         for (let i=0; i < this.state.people; i++) {
             finalPeopleList.push(this.state.peopleNames[i]);
         }
-        if (this.state.step1Validation || this.state.step2Validation || this.state.step3Validation) {
+        if (this.state.step1Validation && this.state.step2Validation && this.state.step3Validation) {
             alert(
                 '\n People ' + this.state.people +
                 '\n PeopleNames ' + finalPeopleList +

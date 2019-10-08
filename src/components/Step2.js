@@ -2,9 +2,12 @@ import React from 'react';
 import success from "../success.svg";
 
 function Step2(props) {
+
+    let status = props.state.step1Validation;
+
     return (
 
-        <fieldset id="step_2">
+        <fieldset id="step_2" disabled={!status} className={status === false ? 'disabled' : false}>
 
             <legend>Step 2</legend>
             <p>
