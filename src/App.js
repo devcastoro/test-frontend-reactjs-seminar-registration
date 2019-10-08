@@ -114,7 +114,7 @@ class App extends React.Component {
             finalPeopleList.push(this.state.peopleNames[i]);
         }
         if (this.state.step1Validation || this.state.step2Validation || this.state.step3Validation) {
-            console.log(
+            alert(
                 '\n People ' + this.state.people +
                 '\n PeopleNames ' + finalPeopleList +
                 '\n Company Name on Badge ' + this.state.nameBadge +
