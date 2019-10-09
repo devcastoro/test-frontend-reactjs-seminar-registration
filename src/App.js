@@ -120,9 +120,9 @@ class App extends React.Component {
                 '\n Special Accommodation Reason: ' + this.state.specialAccommodationReason +
 
                 '\n Ready to rock ' + this.state.readyToRock
-            )
+            );
+            window.location.reload();
         }
-
     }
 
     render() {
