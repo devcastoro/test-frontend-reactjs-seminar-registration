@@ -1,3 +1,5 @@
+[](https://i.imgur.com/3ampvWX.gif)
+
 # Local setup
 
 Install Node (suggestion: via Homebrew)
