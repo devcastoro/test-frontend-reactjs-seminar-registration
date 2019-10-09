@@ -1,4 +1,4 @@
-[](https://i.imgur.com/3ampvWX.gif)
+![](https://i.imgur.com/3ampvWX.gif)
 
 # Local setup
 
